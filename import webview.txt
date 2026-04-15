@@ -1,0 +1,17 @@
+import webview
+
+# Creamos el navegador personalizado para PolvoBites
+def create_browser():
+    # Aquí pondrías el link de tu página cuando la subas a internet
+    # Por ahora, cargará el archivo que hicimos antes
+    window = webview.create_window(
+        'PolvoBites Browser - Cliente', 
+        'index.html', 
+        width=900, 
+        height=700,
+        resizable=True
+    )
+    webview.start()
+
+if __name__ == '__main__':
+    create_browser()
