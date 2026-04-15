@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PolvoBites | Panel de Control de Jesús</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+        body { font-family: 'Roboto', sans-serif; background-color: #f1f3f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .admin-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); width: 400px; text-align: center; }
+        .hidden { display: none; }
+        input { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #dadce0; border-radius: 8px; }
+        button { background-color: #1a73e8; color: white; border: none; padding: 12px 20px; border-radius: 24px; cursor: pointer; width: 100%; font-weight: 500; }
+        .offer-box { border: 1px dashed #1a73e8; padding: 10px; margin-top: 20px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen" class="admin-card">
+        <h2 style="color: #1a73e8;">Acceso Desarrollador</h2>
+        <input type="password" id="pass" placeholder="Contraseña de Administrador">
+        <button onclick="checkPass()">Entrar al Sistema</button>
+    </div>
+
+    <div id="admin-panel" class="admin-card hidden">
+        <h2>Panel de Jesús</h2>
+        <p>Configura los precios y ofertas de PolvoBites</p>
+        
+        <div style="text-align: left;">
+            <label>Precio Nutella ($):</label>
+            <input type="number" id="new-nutella" placeholder="2.50">
+            
+            <label>Precio Guayaba ($):</label>
+            <input type="number" id="new-guayaba" placeholder="2.00">
+            
+            <label>Nueva Oferta:</label>
+            <input type="text" id="new-offer" placeholder="Ej: 10% desc. en docenas">
+            
+            <label>URL Imagen Polvorón:</label>
+            <input type="text" id="img-url" placeholder="Pega el link de la foto aquí">
+        </div>
+        
+        <button onclick="saveChanges()" style="background-color: #34a853; margin-top: 10px;">Publicar Cambios</button>
+        <p id="status" style="font-size: 12px; color: green;"></p>
+    </div>
+
+    <script>
+        function checkPass() {
+            const pass = document.getElementById('pass').value;
+            if(pass === "PolvoBites2026") {
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+            } else {
+                alert("Acceso denegado. Contraseña incorrecta.");
+            }
+        }
+
+        function saveChanges() {
+            // Aquí en el futuro conectaremos la base de datos
+            document.getElementById('status').innerText = "¡Información actualizada con éxito en la nube!";
+        }
+    </script>
+</body>
+</html>
